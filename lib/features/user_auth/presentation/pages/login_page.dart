@@ -6,7 +6,7 @@ import 'package:flutter_firebase/features/user_auth/presentation/pages/sign_up_p
 import 'package:flutter_firebase/features/user_auth/presentation/widgets/form_container_widget.dart';
 import 'package:flutter_firebase/global/common/toast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+// import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../firebase_auth_implementation/firebase_auth_services.dart';
 
@@ -91,36 +91,36 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               SizedBox(height: 10,),
-              GestureDetector(
-                onTap: () {
-                  _signInWithGoogle();
+              // GestureDetector(
+              //   onTap: () {
+                  
 
-                },
-                child: Container(
-                  width: double.infinity,
-                  height: 45,
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(FontAwesomeIcons.google, color: Colors.white,),
-                        SizedBox(width: 5,),
-                        Text(
-                          "Sign in with Google",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              //   },
+              //   child: Container(
+              //     width: double.infinity,
+              //     height: 45,
+              //     decoration: BoxDecoration(
+              //       color: Colors.red,
+              //       borderRadius: BorderRadius.circular(10),
+              //     ),
+              //     child: Center(
+              //       child: Row(
+              //         mainAxisAlignment: MainAxisAlignment.center,
+              //         children: [
+              //           Icon(FontAwesomeIcons.google, color: Colors.white,),
+              //           SizedBox(width: 5,),
+              //           Text(
+              //             "Sign in with Google",
+              //             style: TextStyle(
+              //               color: Colors.white,
+              //               fontWeight: FontWeight.bold,
+              //             ),
+              //           ),
+              //         ],
+              //       ),
+              //     ),
+              //   ),
+              // ),
 
 
               SizedBox(
@@ -182,33 +182,33 @@ class _LoginPageState extends State<LoginPage> {
   }
 
 
-  _signInWithGoogle()async{
+//   _signInWithGoogle()async{
 
-    final GoogleSignIn _googleSignIn = GoogleSignIn();
+//     final GoogleSignIn _googleSignIn = GoogleSignIn();
 
-    try {
+//     try {
 
-      final GoogleSignInAccount? googleSignInAccount = await _googleSignIn.signIn();
+//       final GoogleSignInAccount? googleSignInAccount = await _googleSignIn.signIn();
 
-      if(googleSignInAccount != null ){
-        final GoogleSignInAuthentication googleSignInAuthentication = await
-        googleSignInAccount.authentication;
+//       if(googleSignInAccount != null ){
+//         final GoogleSignInAuthentication googleSignInAuthentication = await
+//         googleSignInAccount.authentication;
 
-        final AuthCredential credential = GoogleAuthProvider.credential(
-          idToken: googleSignInAuthentication.idToken,
-          accessToken: googleSignInAuthentication.accessToken,
-        );
+//         final AuthCredential credential = GoogleAuthProvider.credential(
+//           idToken: googleSignInAuthentication.idToken,
+//           accessToken: googleSignInAuthentication.accessToken,
+//         );
 
-        await _firebaseAuth.signInWithCredential(credential);
-        Navigator.pushNamed(context, "/home");
-      }
+//         await _firebaseAuth.signInWithCredential(credential);
+//         Navigator.pushNamed(context, "/home");
+//       }
 
-    }catch(e) {
-showToast(message: "some error occured $e");
-    }
+//     }catch(e) {
+// showToast(message: "some error occured $e");
+//     }
 
 
-  }
+//   }
 
 
 }
