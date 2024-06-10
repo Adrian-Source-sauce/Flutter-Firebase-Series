@@ -17,6 +17,7 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
+
 class _LoginPageState extends State<LoginPage> {
   bool _isSigning = false;
   final FirebaseAuthService _auth = FirebaseAuthService();
@@ -30,6 +31,7 @@ class _LoginPageState extends State<LoginPage> {
     _passwordController.dispose();
     super.dispose();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -158,6 +160,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+  
 
   void _signIn() async {
     setState(() {

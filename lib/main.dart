@@ -1,22 +1,30 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_firebase/features/user_auth/presentation/pages/look_data.dart';
+import 'firebase_options.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase/features/user_auth/presentation/pages/hewan.dart';
 import 'package:firebase_auth/firebase_auth.dart'; // Import Firebase Auth
 import 'package:flutter_firebase/features/app/splash_screen/splash_screen.dart';
 import 'package:flutter_firebase/features/user_auth/presentation/pages/home_page.dart';
 import 'package:flutter_firebase/features/user_auth/presentation/pages/login_page.dart';
 import 'package:flutter_firebase/features/user_auth/presentation/pages/sign_up_page.dart';
 
-
 Future main() async {
+  // final auth = FirebaseAuth.instance;
+  // final user = await auth.currentUser;
+//   if (user != null) {
+//   print('User is signed in: ${user.uid}');
+//   // Show a "Welcome" message or navigate to the home page
+// } else {
+//   print('No user is signed in');
+//   // Show a login page
+// }
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
     await Firebase.initializeApp(
       options: FirebaseOptions(
           apiKey: "AIzaSyC1U33Uw2ebz_DsJh15jCVW1QvJf4okMrc",
-          authDomain: "flutter-firebase-1cf76.firebaseapp.com",
-          databaseURL:
-              "https://flutter-firebase-1cf76-default-rtdb.asia-southeast1.firebasedatabase.app",
           projectId: "flutter-firebase-1cf76",
           storageBucket: "flutter-firebase-1cf76.appspot.com",
           messagingSenderId: "1080900388377",
@@ -26,7 +34,10 @@ Future main() async {
           ),
     );
   } else {
-    await Firebase.initializeApp();
+    // WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
   }
   runApp(MyApp());
 }
@@ -34,7 +45,6 @@ Future main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Firebase',
@@ -46,8 +56,9 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/signUp': (context) => SignUpPage(),
         '/home': (context) => HomePage(),
+        '/hewan': (context) => Hewan(),
+        '/look' :(context) => LookData()
       },
-      
     );
   }
 }
