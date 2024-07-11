@@ -37,16 +37,24 @@ class _HewanState extends State<Hewan> {
                   }));
                 },
                 child: Container(
-                  color: Colors.blue,
+                  color: const Color.fromARGB(255, 106, 131, 151),
                   margin: EdgeInsets.all(4.0),
                   child: Center(
-                    child: Text(hewanList[index].name,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                  ),
+                    child: Column(
+                      children: <Widget> [
+                        Image.network(hewanList[index].imageUrl,
+                          width: 170,
+                          height: 140,
+                          fit: BoxFit.cover,),
+                        Text(hewanList[index].name,
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                                          ),
+                      ],
+                    ),
                   )
                 ));
           },

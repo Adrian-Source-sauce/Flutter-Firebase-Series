@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_firebase/features/user_auth/presentation/model/role_based_direct.dart';
 import 'package:flutter_firebase/features/user_auth/presentation/pages/look_data.dart';
 import 'firebase_options.dart';
 import 'package:flutter/foundation.dart';
@@ -49,15 +50,16 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Firebase',
       routes: {
-        '/': (context) => SplashScreen(
-              // Here, you can decide whether to show the LoginPage or HomePage based on user authentication
-              child: LoginPage(),
-            ),
+       '/': (context) => SplashScreen(
+        child: RoleBasedRedirect(),
+       )
+       ,
         '/login': (context) => LoginPage(),
         '/signUp': (context) => SignUpPage(),
         '/home': (context) => HomePage(),
         '/hewan': (context) => Hewan(),
-        '/look' :(context) => LookData()
+        '/lihat' :(context) => LookData()
+        
       },
     );
   }

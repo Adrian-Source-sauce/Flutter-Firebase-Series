@@ -4,7 +4,7 @@ import 'package:flutter_firebase/features/user_auth/presentation/pages/login_pag
 // import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key, required LoginPage child});
+  const SplashScreen({super.key, required child});
 
   @override
   Widget build(BuildContext context) {

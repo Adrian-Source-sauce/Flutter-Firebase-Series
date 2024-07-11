@@ -177,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
     });
 
     if (user != null) {
-      showToast(message: "User is successfully signed in");
+      showToast(message: "Pengguna Berhasul Login");
       Navigator.pushNamed(context, "/home");
     } else {
       showToast(message: "some error occured");
